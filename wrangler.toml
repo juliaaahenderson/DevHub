@@ -1,5 +1,0 @@
-name = "devhub"
-compatibility_date = "2026-08-16"
-
-[vars]
-WORKER_SELF_REFERENCE = "devhub"
