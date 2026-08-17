@@ -35,7 +35,7 @@ export default function ToolsClient({ developerTools }: ToolsClientProps) {
   // Map tool names to official vector SVG brand logos
   const getToolLogo = (name: string) => {
     const lower = name.toLowerCase();
-    if (lower.includes('vscode') || lower.includes('vs code')) return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg';
+    if (lower.includes('vscode') || lower.includes('vs code') || lower.includes('visual studio')) return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg';
     if (lower.includes('github')) return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg';
     if (lower.includes('postman')) return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg';
     if (lower.includes('docker')) return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg';
@@ -47,7 +47,7 @@ export default function ToolsClient({ developerTools }: ToolsClientProps) {
   // Tool specific configurations for visual states
   const getToolTheme = (name: string) => {
     const lower = name.toLowerCase();
-    if (lower.includes('vscode') || lower.includes('vs code')) return {
+    if (lower.includes('vscode') || lower.includes('vs code') || lower.includes('visual studio')) return {
       borderHover: 'hover:border-blue-300', 
       shadowHover: 'hover:shadow-[0_20px_50px_rgba(59,130,246,0.08)]', 
       logoBg: 'bg-blue-50/80 border-blue-100', 

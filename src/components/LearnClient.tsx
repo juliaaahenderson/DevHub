@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BookOpen, Clock, BarChart } from 'lucide-react';
 import { LearningPath } from '@/data/staticData';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useSearchParams } from 'next/navigation';
 
 interface LearnClientProps {
   learningPaths: LearningPath[];
@@ -12,6 +13,16 @@ interface LearnClientProps {
 export default function LearnClient({ learningPaths }: LearnClientProps) {
   const [selectedLevel, setSelectedLevel] = useState<string>('All');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const searchParams = useSearchParams();
+
+  const categories = ['All', 'Web Development', 'JavaScript', 'Python', 'Java', 'C++'];
+
+  useEffect(() => {
+    const cat = searchParams.get('cat');
+    if (cat && categories.includes(cat)) {
+      setSelectedCategory(cat);
+    }
+  }, [searchParams]);
 
   const filteredPaths = learningPaths.filter((path) => {
     const matchLevel = selectedLevel === 'All' || path.level === selectedLevel;
@@ -19,7 +30,6 @@ export default function LearnClient({ learningPaths }: LearnClientProps) {
     return matchLevel && matchCategory;
   });
 
-  const categories = ['All', 'Web Development', 'JavaScript', 'Python', 'Java', 'C++'];
   const levels = ['All', 'Beginner', 'Intermediate', 'Advanced'];
 
   return (

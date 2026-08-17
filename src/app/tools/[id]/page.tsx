@@ -30,7 +30,7 @@ export default function ToolDetailPage({ params }: { params: Promise<{ id: strin
   // Map tool names to official vector SVG brand logos
   const getToolLogo = (name: string) => {
     const lower = name.toLowerCase();
-    if (lower.includes('vscode') || lower.includes('vs code')) return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg';
+    if (lower.includes('vscode') || lower.includes('vs code') || lower.includes('visual studio')) return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg';
     if (lower.includes('github')) return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg';
     if (lower.includes('postman')) return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg';
     if (lower.includes('docker')) return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg';
@@ -42,7 +42,7 @@ export default function ToolDetailPage({ params }: { params: Promise<{ id: strin
   // Map tool names to realistic photographs from public/tools
   const getRealisticVisual = (name: string) => {
     const lower = name.toLowerCase();
-    if (lower.includes('vscode') || lower.includes('vs code')) return '/tools/vscode.png';
+    if (lower.includes('vscode') || lower.includes('vs code') || lower.includes('visual studio')) return '/tools/vscode.png';
     if (lower.includes('github')) return '/tools/github.png';
     if (lower.includes('postman')) return '/tools/postman.png';
     if (lower.includes('docker')) return '/tools/docker.png';

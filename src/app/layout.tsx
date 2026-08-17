@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   description:
     'A world-class digital product built for developers, software professionals, and technology enthusiasts. Learn code, explore tech tools, and master productivity.',
   keywords: 'Next.js, React, Tailwind CSS, TypeScript, Learning Paths, Codecademy, MDN, StackShare, Microsoft Office',
+  icons: {
+    icon: [
+      { url: '/DevHub favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/DevHub favicon.png', sizes: '192x192', type: 'image/png' },
+      { url: '/DevHub favicon.png', sizes: '512x512', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({
