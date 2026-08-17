@@ -222,38 +222,89 @@ export default function DocPreview() {
   };
 
   return (
-    <section className="py-24 bg-slate-50/50 border-b border-slate-200/50 relative overflow-hidden">
-      {/* Decorative lighting background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-blue-50/30 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-indigo-50/30 blur-3xl" />
+    <section className="py-24 lg:py-28 bg-gradient-to-b from-slate-50 to-white border-b border-slate-200/50 relative overflow-hidden">
+      {/* Decorative premium curved waves background */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        {/* Left Wave Stack */}
+        <div className="absolute -left-20 top-12 w-[380px] h-[600px] opacity-[0.45]">
+          <svg viewBox="0 0 100 200" fill="none" className="w-full h-full stroke-slate-200/80" strokeWidth="0.4">
+            <path d="M-20,0 C20,40 40,80 20,120 C0,160 -10,180 -30,200" />
+            <path d="M-10,0 C30,40 50,80 30,120 C10,160 0,180 -20,200" />
+            <path d="M0,0 C40,40 60,80 40,120 C20,160 10,180 -10,200" />
+            <path d="M10,0 C50,40 70,80 50,120 C30,160 20,180 0,200" />
+            <path d="M20,0 C60,40 80,80 60,120 C40,160 30,180 10,200" />
+          </svg>
+        </div>
+        {/* Right Wave Stack */}
+        <div className="absolute -right-24 top-24 w-[420px] h-[600px] opacity-[0.5]">
+          <svg viewBox="0 0 100 200" fill="none" className="w-full h-full stroke-slate-200/80" strokeWidth="0.4">
+            <path d="M120,0 C80,40 60,80 80,120 C100,160 110,180 130,200" />
+            <path d="M110,0 C70,40 50,80 70,120 C90,160 100,180 120,200" />
+            <path d="M100,0 C60,40 40,80 60,120 C80,160 90,180 110,200" />
+            <path d="M90,0 C50,40 30,80 50,120 C70,160 80,180 100,200" />
+            <path d="M80,0 C40,40 20,80 40,120 C60,160 70,180 90,200" />
+          </svg>
+        </div>
+        {/* Vivid background glow orbs */}
+        <div className="absolute -top-48 -right-40 w-[600px] h-[600px] rounded-full bg-blue-200/30 blur-[120px]" />
+        <div className="absolute -bottom-48 -left-40 w-[600px] h-[600px] rounded-full bg-indigo-200/30 blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-blue-100/10 via-transparent to-indigo-100/10 rounded-full blur-[100px]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Block */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-slate-800 leading-[1.15]">
-            Technical Knowledge, <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Structured</span>
-          </h2>
-          <p className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-2xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-5">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-semibold text-slate-500 mx-auto"
+          >
+            <BookOpen className="w-3.5 h-3.5 text-blue-500" />
+            8 Interactive References
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-3xl sm:text-4xl lg:text-[2.75rem] font-medium tracking-tight text-slate-800 leading-[1.15]"
+          >
+            Technical Knowledge,{' '}
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Structured</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-sm sm:text-base text-slate-500 leading-relaxed max-w-2xl mx-auto"
+          >
             Inspired by MDN Web Docs. Discover clean semantic explanations, custom syntax-highlighted IDE environments, and structured tables of contents.
-          </p>
+          </motion.p>
         </div>
 
         {/* Documentation Editorial Preview Container */}
-        <div className="bg-white border border-slate-200 rounded-3xl shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="bg-white border border-slate-200/80 rounded-3xl shadow-[0_20px_60px_-15px_rgba(15,23,42,0.08)] overflow-hidden grid grid-cols-1 lg:grid-cols-12 max-w-6xl mx-auto"
+        >
           
           {/* Column 1: Left Navigation Sidebar */}
-          <div className="lg:col-span-4 bg-slate-50/70 p-6 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col justify-between max-h-[640px] overflow-y-auto">
+          <div className="lg:col-span-4 bg-gradient-to-b from-slate-50/80 to-white p-6 border-b lg:border-b-0 lg:border-r border-slate-200/70 flex flex-col justify-between max-h-[640px] overflow-y-auto">
             <div className="space-y-6">
               {/* Search Bar Input (Mocked) */}
-              <div className="relative">
-                <Search className="absolute left-3 top-2.5 w-4 h-4 text-slate-400" />
+              <div className="relative group">
+                <Search className="absolute left-3.5 top-2.5 w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors" />
                 <input
                   type="text"
                   placeholder="Quick search docs..."
-                  className="w-full bg-white pl-9 pr-4 py-1.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-slate-400 cursor-not-allowed"
+                  className="w-full bg-white pl-10 pr-4 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 transition-all placeholder:text-slate-400 cursor-not-allowed shadow-sm hover:shadow-md hover:border-slate-300"
                   readOnly
                 />
               </div>
@@ -277,17 +328,17 @@ export default function DocPreview() {
                               setSelectedKey(key);
                               setCopied(false);
                             }}
-                            className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-all ${
+                            className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 ${
                               isActive
-                                ? 'bg-blue-50 text-blue-600 shadow-sm border-l-4 border-blue-500 pl-2.5 font-bold'
-                                : 'text-slate-600 hover:bg-slate-100/80 hover:text-slate-900'
+                                ? 'bg-blue-50 text-blue-600 shadow-sm border-l-[3px] border-blue-500 pl-2.5 font-bold ring-1 ring-blue-100'
+                                : 'text-slate-600 hover:bg-white hover:shadow-sm hover:text-slate-900 hover:ring-1 hover:ring-slate-200/60'
                             }`}
                           >
-                            <span className="flex items-center gap-2 truncate">
-                              <FileText className="w-3.5 h-3.5 flex-shrink-0 text-slate-400" />
+                            <span className="flex items-center gap-2.5 truncate">
+                              <FileText className={`w-3.5 h-3.5 flex-shrink-0 transition-colors ${isActive ? 'text-blue-500' : 'text-slate-400'}`} />
                               <span className="truncate">{item.title}</span>
                             </span>
-                            <ChevronRight className="w-3 h-3 opacity-60 flex-shrink-0" />
+                            <ChevronRight className={`w-3 h-3 flex-shrink-0 transition-all ${isActive ? 'opacity-100 translate-x-0.5 text-blue-500' : 'opacity-40'}`} />
                           </button>
                         );
                       })}
@@ -310,36 +361,47 @@ export default function DocPreview() {
           </div>
 
           {/* Column 2: Central Content Preview Block */}
-          <div className="lg:col-span-5 p-6 sm:p-8 space-y-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-200">
+          <div className="lg:col-span-5 p-6 sm:p-8 space-y-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-200/70">
             <div className="space-y-6">
-              <div className="flex items-center gap-2">
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-50 text-blue-600 border border-blue-100">
-                  {article.category}
-                </span>
-              </div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={selectedKey + '-header'}
+                  initial={{ opacity: 0, x: 8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -8 }}
+                  transition={{ duration: 0.2 }}
+                  className="space-y-5"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-600 border border-blue-100/80 shadow-sm">
+                      {article.category}
+                    </span>
+                  </div>
 
-              <div className="space-y-2">
-                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                  {article.title}
-                </h3>
-                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
-                  {article.excerpt}
-                </p>
-              </div>
+                  <div className="space-y-3">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-tight">
+                      {article.title}
+                    </h3>
+                    <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
+                      {article.excerpt}
+                    </p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
 
               {/* IDE Code & Explanation Switcher Container */}
-              <div className="bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-md">
-                <div className="px-4 py-3 bg-slate-950/80 border-b border-slate-800/80 flex items-center justify-between text-xs font-mono">
-                  <div className="flex items-center gap-1">
+              <div className="bg-slate-900 rounded-2xl overflow-hidden border border-slate-800/80 shadow-[0_8px_30px_-10px_rgba(15,23,42,0.4)]">
+                <div className="px-4 py-3 bg-slate-950/90 border-b border-slate-800/60 flex items-center justify-between text-xs font-mono">
+                  <div className="flex items-center gap-0.5 bg-slate-900/50 rounded-lg p-0.5">
                     <button 
                       onClick={() => setShowCode(true)}
-                      className={`px-3 py-1 rounded-lg text-xs transition-colors ${showCode ? 'bg-slate-800 text-white font-bold' : 'text-slate-400 hover:text-slate-200'}`}
+                      className={`px-3 py-1.5 rounded-md text-xs transition-all duration-200 ${showCode ? 'bg-slate-700 text-white font-bold shadow-sm' : 'text-slate-400 hover:text-slate-200'}`}
                     >
                       Code View
                     </button>
                     <button 
                       onClick={() => setShowCode(false)}
-                      className={`px-3 py-1 rounded-lg text-xs transition-colors ${!showCode ? 'bg-slate-800 text-white font-bold' : 'text-slate-400 hover:text-slate-200'}`}
+                      className={`px-3 py-1.5 rounded-md text-xs transition-all duration-200 ${!showCode ? 'bg-slate-700 text-white font-bold shadow-sm' : 'text-slate-400 hover:text-slate-200'}`}
                     >
                       Explanation Output
                     </button>
@@ -347,7 +409,7 @@ export default function DocPreview() {
                   <div className="flex items-center gap-2.5">
                     <button
                       onClick={handleCopy}
-                      className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all active:scale-95"
                       title="Copy Code"
                     >
                       {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
@@ -355,7 +417,7 @@ export default function DocPreview() {
                   </div>
                 </div>
 
-                <div className="p-5 overflow-x-auto text-xs font-mono text-slate-300 leading-relaxed min-h-[140px] max-h-[220px] overflow-y-auto">
+                <div className="p-5 overflow-x-auto text-xs font-mono text-slate-300 leading-relaxed min-h-[140px] max-h-[220px] overflow-y-auto scrollbar-thin">
                   <AnimatePresence mode="wait">
                     {showCode ? (
                       <motion.pre
@@ -490,44 +552,61 @@ export default function DocPreview() {
           </div>
 
           {/* Column 3: Right Table of Contents Sidebar */}
-          <div className="lg:col-span-3 bg-slate-50/50 p-6 flex flex-col justify-between gap-6">
-            <div className="space-y-4">
+          <div className="lg:col-span-3 bg-gradient-to-b from-slate-50/60 to-white p-6 flex flex-col justify-between gap-6">
+            <div className="space-y-5">
               <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                <Star className="w-3.5 h-3.5 text-yellow-500 fill-yellow-500" />
+                <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
                 <span>On This Page</span>
               </div>
-              <ul className="space-y-3">
-                {article.toc.map((item, idx) => (
-                  <li
-                    key={idx}
-                    className={`text-xs font-medium cursor-pointer transition-colors flex items-center gap-1.5 group ${
-                      idx === 0 ? 'text-blue-600 font-bold' : 'text-slate-500 hover:text-slate-800'
-                    }`}
-                  >
-                    <span className={`w-1.5 h-1.5 rounded-full ${idx === 0 ? 'bg-blue-600' : 'bg-transparent group-hover:bg-slate-300'} transition-all`} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <AnimatePresence mode="wait">
+                <motion.ul
+                  key={selectedKey + '-toc'}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.2 }}
+                  className="space-y-1"
+                >
+                  {article.toc.map((item, idx) => (
+                    <li
+                      key={idx}
+                      className={`text-xs font-medium cursor-pointer transition-all duration-200 flex items-center gap-2 group px-3 py-2 rounded-lg ${
+                        idx === 0 
+                          ? 'text-blue-600 font-bold bg-blue-50/60' 
+                          : 'text-slate-500 hover:text-slate-800 hover:bg-slate-100/60'
+                      }`}
+                    >
+                      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all ${idx === 0 ? 'bg-blue-600' : 'bg-slate-300 group-hover:bg-slate-500'}`} />
+                      {item}
+                    </li>
+                  ))}
+                </motion.ul>
+              </AnimatePresence>
             </div>
             
             {/* Quick stats / overview sidebar widget */}
-            <div className="p-4 bg-white border border-slate-200/80 rounded-2xl space-y-2">
-              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest block flex items-center gap-1">
-                <ShieldAlert className="w-3 h-3 text-emerald-500" />
+            <div className="p-4 bg-white border border-slate-200/60 rounded-2xl space-y-3 shadow-sm">
+              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
+                <ShieldAlert className="w-3.5 h-3.5 text-emerald-500" />
                 Reference Status
               </span>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span className="text-xs font-bold text-slate-700">Verified Stable</span>
               </div>
-              <p className="text-[10px] text-slate-500 leading-normal">
+              <p className="text-[10px] text-slate-500 leading-relaxed">
                 Matches the ECMAScript 2026 specs & CSS specifications.
               </p>
+              <div className="pt-2 border-t border-slate-100">
+                <div className="flex items-center justify-between text-[9px] text-slate-400">
+                  <span>Last verified</span>
+                  <span className="font-semibold text-slate-500">Aug 2026</span>
+                </div>
+              </div>
             </div>
           </div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );

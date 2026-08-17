@@ -79,113 +79,27 @@ const getToolConfig = (name: string) => {
   };
 };
 
-const renderToolVisual = (id: string, name: string) => {
-  switch (id) {
-    case 'vscode':
-      return (
-        <div className="relative w-full h-32 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50/50 border border-blue-100/70 overflow-hidden flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] opacity-70" />
-          <div className="relative w-full max-w-[200px] bg-white rounded-xl shadow-lg border border-slate-100 p-2.5 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
-              <img src="https://www.vectorlogo.zone/logos/visualstudio_code/visualstudio_code-icon.svg" className="w-6 h-6 object-contain" alt="" />
-            </div>
-            <div className="flex-1 space-y-1">
-              <div className="h-2 w-2/3 bg-slate-200 rounded animate-pulse" />
-              <div className="h-1.5 w-1/2 bg-slate-100 rounded" />
-            </div>
-            <div className="flex gap-1 shrink-0">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-            </div>
-          </div>
-        </div>
-      );
-    case 'github':
-      return (
-        <div className="relative w-full h-32 rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50/50 border border-indigo-100/70 overflow-hidden flex items-center justify-center p-4">
-          <svg className="absolute inset-0 w-full h-full stroke-indigo-100/40" viewBox="0 0 100 60" fill="none">
-            <path d="M10 30 C 30 10, 70 50, 90 30" strokeWidth="1.5" />
-            <path d="M10 30 H 90" strokeWidth="1.5" strokeDasharray="3 3" />
-          </svg>
-          <div className="relative w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center shadow-xl shadow-indigo-900/15">
-            <img src="https://www.vectorlogo.zone/logos/github/github-icon.svg" className="w-7 h-7 object-contain invert" alt="" />
-          </div>
-          <div className="absolute right-4 top-4 flex items-center gap-1.5 bg-white/80 border border-slate-100 px-2 py-0.5 rounded-full shadow-sm text-[8px] font-bold text-indigo-600">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            PR merged
-          </div>
-        </div>
-      );
-    case 'postman':
-      return (
-        <div className="relative w-full h-32 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50/50 border border-amber-100/70 overflow-hidden flex items-center justify-center p-4">
-          <div className="absolute w-24 h-24 rounded-full border border-amber-200/40 animate-[spin_20s_linear_infinite]" />
-          <div className="relative w-11 h-11 rounded-xl bg-orange-500 flex items-center justify-center shadow-lg shadow-orange-500/20">
-            <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" className="w-6 h-6 object-contain brightness-0 invert" alt="" />
-          </div>
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white/95 border border-slate-100 px-2.5 py-0.5 rounded-full shadow-sm text-[8px] font-mono text-slate-500 flex items-center gap-1">
-            <span className="text-emerald-500 font-bold">200 OK</span>
-            <span className="text-slate-300">|</span>
-            <span>12ms</span>
-          </div>
-        </div>
-      );
-    case 'docker':
-      return (
-        <div className="relative w-full h-32 rounded-2xl bg-gradient-to-br from-cyan-50 to-blue-50/50 border border-cyan-100/70 overflow-hidden flex items-center justify-center p-4">
-          <div className="flex gap-2">
-            {[1, 2, 3].map((i) => (
-              <div 
-                key={i}
-                className="w-10 h-12 bg-white rounded-lg border border-slate-100 shadow-md flex flex-col items-center justify-between p-1.5"
-                style={{ transform: `translateY(${i % 2 === 0 ? '-4px' : '4px'})` }}
-              >
-                <div className="w-full h-1.5 rounded bg-cyan-100" />
-                <div className="w-5 h-5 rounded-md bg-cyan-500/10 flex items-center justify-center text-cyan-600 text-[8px]">
-                  ⚓
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="absolute right-4 bottom-3 w-6 h-6 rounded bg-white border border-slate-100 flex items-center justify-center shadow-sm">
-            <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" className="w-4 h-4 object-contain" alt="" />
-          </div>
-        </div>
-      );
-    case 'mongodb':
-      return (
-        <div className="relative w-full h-32 rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50/50 border border-emerald-100/70 overflow-hidden flex items-center justify-center p-4">
-          <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white/80 to-transparent" />
-          <div className="relative flex flex-col items-center gap-1">
-            <div className="w-12 h-12 rounded-xl bg-white border border-emerald-100 flex items-center justify-center shadow-lg shadow-emerald-900/5">
-              <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" className="w-7 h-7 object-contain" alt="" />
-            </div>
-            <span className="text-[8px] text-emerald-600 font-bold bg-emerald-50 border border-emerald-100 px-1.5 py-0.2 rounded-full">
-              Cluster Active
-            </span>
-          </div>
-        </div>
-      );
-    case 'azure':
-      return (
-        <div className="relative w-full h-32 rounded-2xl bg-gradient-to-br from-blue-50 to-sky-50/50 border border-blue-100/70 overflow-hidden flex items-center justify-center p-4">
-          <div className="absolute -right-6 -bottom-6 w-20 h-20 bg-blue-500/5 rounded-full blur-xl" />
-          <div className="relative w-12 h-12 rounded-full bg-white border border-blue-100 flex items-center justify-center shadow-lg shadow-blue-500/10">
-            <img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" className="w-6 h-6 object-contain" alt="" />
-          </div>
-          <div className="absolute left-4 top-3 flex items-center gap-1 text-[8px] font-mono text-slate-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-ping" />
-            <span>East US Node</span>
-          </div>
-        </div>
-      );
-    default:
-      return (
-        <div className="relative w-full h-32 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100/50 border border-slate-200/70 overflow-hidden flex items-center justify-center p-4">
-          <span className="text-[10px] font-mono text-slate-500">{name} Ecosystem</span>
-        </div>
-      );
-  }
+const toolImages: Record<string, string> = {
+  vscode: '/tools/vscode.png',
+  github: '/tools/github.png',
+  postman: '/tools/postman.png',
+  docker: '/tools/docker.png',
+  mongodb: '/tools/mongodb.png',
+  azure: '/tools/azure.png',
+};
+
+const renderToolVisual = (id: string) => {
+  const src = toolImages[id];
+  return (
+    <div className="relative w-full h-40 rounded-xl overflow-hidden">
+      <img
+        src={src || '/tools/vscode.png'}
+        alt=""
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
+    </div>
+  );
 };
 
 export default function ToolShowcase() {
@@ -362,7 +276,7 @@ export default function ToolShowcase() {
                 >
                   <div className="space-y-4">
                     {/* Visual representation on top */}
-                    {renderToolVisual(tool.id, tool.name)}
+                    {renderToolVisual(tool.id)}
 
                     {/* Metadata & Texts below visual */}
                     <div className="space-y-2">

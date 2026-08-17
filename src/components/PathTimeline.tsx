@@ -20,6 +20,7 @@ const steps = [
     description:
       'Master the building blocks of programming — variables, data types, control flow, and object-oriented principles.',
     icon: Compass,
+    image: '/pathways/foundations.png',
     skills: ['Variables & Types', 'Control Flow', 'Object Basics'],
     gradient: 'from-blue-600 to-cyan-500',
     glowColor: 'rgba(59, 130, 246, 0.12)',
@@ -33,6 +34,7 @@ const steps = [
     description:
       'Turn theory into practice by building real applications with API integrations, dynamic UIs, and state orchestration.',
     icon: Play,
+    image: '/pathways/build-projects.png',
     skills: ['API Integrations', 'Interactive UIs', 'State Management'],
     gradient: 'from-violet-600 to-purple-500',
     glowColor: 'rgba(139, 92, 246, 0.12)',
@@ -46,6 +48,7 @@ const steps = [
     description:
       'Dive deep into concurrency models, memory management strategies, and enterprise-grade design patterns.',
     icon: Target,
+    image: '/pathways/advanced-concepts.png',
     skills: ['Concurrency', 'Memory Control', 'Design Patterns'],
     gradient: 'from-amber-600 to-orange-500',
     glowColor: 'rgba(245, 158, 11, 0.12)',
@@ -59,6 +62,7 @@ const steps = [
     description:
       'Ship production code with containerization, continuous integration pipelines, and cloud-native deployment strategies.',
     icon: Award,
+    image: '/pathways/career-ready.png',
     skills: ['Docker Packaging', 'CI/CD Pipelines', 'Cloud Hosting'],
     gradient: 'from-emerald-600 to-teal-500',
     glowColor: 'rgba(16, 185, 129, 0.12)',
@@ -238,6 +242,16 @@ export default function PathTimeline() {
                       />
                     )}
 
+                    {/* Premium photo visual */}
+                    <div className="relative w-full h-32 rounded-t-2xl overflow-hidden">
+                      <img
+                        src={step.image}
+                        alt={step.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent" />
+                    </div>
+
                     <div className="p-5">
                       {/* Icon Node */}
                       <div className="mb-4 relative inline-flex">
@@ -369,7 +383,17 @@ export default function PathTimeline() {
                     />
                   )}
 
-                  <div className="flex items-start gap-4">
+                  {/* Premium photo visual */}
+                  <div className="relative w-full h-36 rounded-t-xl overflow-hidden mb-4">
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/40 to-transparent" />
+                  </div>
+
+                  <div className="flex items-start gap-4 px-1">
                     {/* Icon */}
                     <div
                       className={`w-12 h-12 rounded-xl shrink-0 flex items-center justify-center ${

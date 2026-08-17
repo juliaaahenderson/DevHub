@@ -61,7 +61,7 @@ const doubledTech = [...trendingTechnologies, ...trendingTechnologies, ...trendi
 
 export default function TrendingTech() {
   return (
-    <section className="py-24 bg-slate-50/50 border-b border-slate-200/50 overflow-hidden relative">
+    <section className="pt-24 pb-12 bg-slate-50/50 border-b border-slate-200/50 overflow-hidden relative">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute inset-0 tech-dot-grid opacity-[0.2]" />
       </div>
