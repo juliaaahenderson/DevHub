@@ -55,39 +55,89 @@ export interface MicrosoftProduct {
 }
 
 export const learningPaths: LearningPath[] = [
+  // ── Web Development ──
   {
     id: 'web-dev',
-    title: 'Full-Stack Web Development',
-    description: 'Master modern frontend and backend technologies to build scalable production web applications from scratch.',
+    title: 'Full-Stack Web Development Foundations',
+    description: 'Master HTML5, CSS3, responsive layouts, and fundamental web mechanics to deploy your first live site.',
     category: 'Web Development',
     level: 'Beginner',
-    duration: '6 Months',
+    duration: '3 Months',
     popular: true,
     milestones: [
       {
-        title: 'Foundations',
-        description: 'Understand HTML5, CSS3, layout systems (Flexbox, Grid), responsive design, and CSS variables.',
-        skills: ['HTML5', 'CSS3', 'Responsive Design', 'Sass']
+        title: 'HTML & CSS Layouts',
+        description: 'Understand semantic tags, page structure, Flexbox, and Grid systems.',
+        skills: ['HTML5', 'CSS3', 'Flexbox', 'Grid']
       },
       {
-        title: 'JavaScript Deep Dive',
-        description: 'Learn modern ES6+ JS, DOM manipulation, asynchronous calls, APIs, and functional concepts.',
-        skills: ['JavaScript ES6', 'DOM API', 'Promises/Fetch', 'JSON']
+        title: 'Basic Scripting',
+        description: 'Integrate dynamic logic and UI event handling using vanilla JavaScript.',
+        skills: ['Vanilla JS', 'DOM Events', 'Form Validation']
+      }
+    ]
+  },
+  {
+    id: 'web-dev-int',
+    title: 'Intermediate Frontend Frameworks',
+    description: 'Build component-driven single-page applications using modern React, Tailwind CSS, and state libraries.',
+    category: 'Web Development',
+    level: 'Intermediate',
+    duration: '4 Months',
+    popular: false,
+    milestones: [
+      {
+        title: 'React Fundamentals',
+        description: 'Manage component lifecycle, state hooks, and routing pipelines.',
+        skills: ['React.js', 'React Router', 'JSX']
       },
       {
-        title: 'Frontend Frameworks',
-        description: 'Deep dive into React, state management, routing, Hooks, Tailwind CSS, and Next.js.',
-        skills: ['React.js', 'Next.js', 'Tailwind CSS', 'Redux Toolkit']
+        title: 'Modern Styling & State',
+        description: 'Structure custom styling systems and manage global client states.',
+        skills: ['Tailwind CSS', 'Redux Toolkit', 'Context API']
+      }
+    ]
+  },
+  {
+    id: 'web-dev-adv',
+    title: 'Advanced Web Scale Architecture',
+    description: 'Design global caching strategies, serverless infrastructures, WebSockets, and secure databases.',
+    category: 'Web Development',
+    level: 'Advanced',
+    duration: '5 Months',
+    popular: true,
+    milestones: [
+      {
+        title: 'Server-Side Rendering',
+        description: 'Configure Next.js App Router, static site generation, and server actions.',
+        skills: ['Next.js', 'SSR/ISR', 'Server Actions']
       },
       {
-        title: 'Backend & APIs',
-        description: 'Learn Node.js, Express, databases, REST APIs, authentication, and middlewares.',
-        skills: ['Node.js', 'Express', 'MongoDB', 'PostgreSQL', 'JWT']
+        title: 'System Scaling',
+        description: 'Implement distributed session caches, reverse proxies, and cloud host setups.',
+        skills: ['Redis', 'Nginx', 'Docker', 'AWS ECS']
+      }
+    ]
+  },
+  // ── JavaScript ──
+  {
+    id: 'js-beg',
+    title: 'JavaScript Core Foundations',
+    description: 'Learn variables, functional scope, control flows, loops, array methods, and basic JSON handling.',
+    category: 'JavaScript',
+    level: 'Beginner',
+    duration: '2 Months',
+    popular: false,
+    milestones: [
+      {
+        title: 'Syntax & Types',
+        description: 'Master scoping rules, array map/filter, objects, and basic runtime methods.',
+        skills: ['Variables', 'Functions', 'Array Methods']
       },
       {
-        title: 'Production Deployments',
-        description: 'Deploy applications with Docker, CI/CD, and Vercel/AWS. Prepare for professional developer roles.',
-        skills: ['Docker', 'AWS', 'GitHub Actions', 'Vercel']
+        title: 'Async Introductions',
+        description: 'Understand asynchronous execution flow, fetch API requests, and callbacks.',
+        skills: ['Callbacks', 'Promises', 'JSON parsing']
       }
     ]
   },
@@ -109,37 +159,182 @@ export const learningPaths: LearningPath[] = [
         title: 'TypeScript Integration',
         description: 'Static typing, interface definition, advanced generics, union types, and declaration files.',
         skills: ['TypeScript Basics', 'Generics', 'Utility Types', 'Strict Linting']
-      },
-      {
-        title: 'Design Patterns',
-        description: 'Singleton, Observer, Factory, Module, and Dependency Injection pattern implementations.',
-        skills: ['Design Patterns', 'SOLID Principles', 'Refactoring']
       }
     ]
   },
   {
-    id: 'python-data',
-    title: 'Python & Data Engineering',
-    description: 'Learn Python programming, data analytics, automated pipelines, and cloud database integrations.',
-    category: 'Python',
-    level: 'Beginner',
+    id: 'js-adv',
+    title: 'Node.js Internals & Engineering',
+    description: 'Master Node.js V8 execution loop, native C++ bindings, buffers, and event-driven stream architectures.',
+    category: 'JavaScript',
+    level: 'Advanced',
     duration: '4 Months',
     popular: false,
     milestones: [
       {
-        title: 'Python Core',
-        description: 'Data types, control structures, object-oriented python, and built-in modules.',
-        skills: ['OOP Python', 'File I/O', 'Error Handling', 'Pip']
+        title: 'Event Loop & Libuv',
+        description: 'Master thread pool orchestration, event loop phases, and custom timer controls.',
+        skills: ['Libuv', 'Thread Pool', 'Timers']
       },
       {
-        title: 'Data Wrangling',
-        description: 'Work with Pandas, NumPy, and databases to clean and structure raw analytical records.',
-        skills: ['Pandas', 'NumPy', 'Jupyter Notebooks', 'SQLite']
+        title: 'Buffers & Streams',
+        description: 'Handle high-throughput binary files and network packet streams efficiently.',
+        skills: ['Buffers', 'Writable/Readable Streams', 'Piping']
+      }
+    ]
+  },
+  // ── Python ──
+  {
+    id: 'python-data',
+    title: 'Python Core & Scripting',
+    description: 'Master Python core syntaxes, lists, dictionaries, OOP principles, and local system operations.',
+    category: 'Python',
+    level: 'Beginner',
+    duration: '2 Months',
+    popular: false,
+    milestones: [
+      {
+        title: 'Syntax & Scripts',
+        description: 'Learn variables, loops, custom function modules, and error logging blocks.',
+        skills: ['Variables', 'OOP Python', 'Error Handling']
       },
       {
-        title: 'Pipelines & Orchestration',
-        description: 'Build ETL processes, schedule tasks, and deploy scripts onto cloud servers.',
-        skills: ['ETL Pipelines', 'Airflow', 'Docker', 'AWS Lambda']
+        title: 'File & Web Requests',
+        description: 'Read and write local system files and pull analytical API payloads.',
+        skills: ['JSON parsing', 'Requests module', 'File I/O']
+      }
+    ]
+  },
+  {
+    id: 'python-int',
+    title: 'Python APIs & Microservices',
+    description: 'Build backend microservices and RESTful API endpoints using FastAPI and robust SQL engines.',
+    category: 'Python',
+    level: 'Intermediate',
+    duration: '3 Months',
+    popular: true,
+    milestones: [
+      {
+        title: 'API Orchestration',
+        description: 'Design pydantic schemas, dependency injection routes, and asynchronous event routes.',
+        skills: ['FastAPI', 'Pydantic', 'Async Python']
+      },
+      {
+        title: 'Relational Mappings',
+        description: 'Integrate PostgreSQL databases using SQLModel or SQLAlchemy ORMs.',
+        skills: ['SQLAlchemy', 'PostgreSQL', 'Migrations']
+      }
+    ]
+  },
+  {
+    id: 'python-adv',
+    title: 'Machine Learning Pipelines',
+    description: 'Optimize data flows using Pandas, NumPy, and compile neural structures using PyTorch.',
+    category: 'Python',
+    level: 'Advanced',
+    duration: '5 Months',
+    popular: false,
+    milestones: [
+      {
+        title: 'Data Wrangling Scale',
+        description: 'Vectorize matrix calculations and clean raw records in analytical sets.',
+        skills: ['Pandas', 'NumPy', 'Jupyter']
+      },
+      {
+        title: 'Neural Networks',
+        description: 'Build neural models, design custom layers, and optimize tensor pipelines.',
+        skills: ['PyTorch', 'Model Training', 'ETL Scaling']
+      }
+    ]
+  },
+  // ── C++ ──
+  {
+    id: 'cpp-beg',
+    title: 'C++ Foundations & OOP',
+    description: 'Learn C++ variables, loops, class definitions, function overrides, and compilation commands.',
+    category: 'C++',
+    level: 'Beginner',
+    duration: '3 Months',
+    popular: false,
+    milestones: [
+      {
+        title: 'Core Syntaxes',
+        description: 'Master loop conditions, basic inputs, function definition, and standard classes.',
+        skills: ['Syntax', 'Standard Library', 'Functions']
+      },
+      {
+        title: 'Object Orientation',
+        description: 'Write custom classes, control scope accesses, and run overrides.',
+        skills: ['Classes', 'Inheritance', 'Polymorphism']
+      }
+    ]
+  },
+  {
+    id: 'cpp-int',
+    title: 'Intermediate C++ & Templates',
+    description: 'Dive into Standard Template Library (STL) algorithms, manual file I/O, and custom templates.',
+    category: 'C++',
+    level: 'Intermediate',
+    duration: '4 Months',
+    popular: false,
+    milestones: [
+      {
+        title: 'STL Containers & Algos',
+        description: 'Master vectors, maps, smart hashing, and standard algorithmic iteration blocks.',
+        skills: ['STL Vector', 'Iterators', 'Algorithms']
+      },
+      {
+        title: 'Template Programming',
+        description: 'Write generic functions, generic class structures, and handle template constraints.',
+        skills: ['Templates', 'File Streams', 'Namespaces']
+      }
+    ]
+  },
+  {
+    id: 'cpp-systems',
+    title: 'C++ Systems Programming',
+    description: 'Master manual memory management, system calls, high-performance computing, and game engines basics.',
+    category: 'C++',
+    level: 'Advanced',
+    duration: '6 Months',
+    popular: true,
+    milestones: [
+      {
+        title: 'Modern C++ Foundations',
+        description: 'Pointers, smart pointers, stack vs heap allocation, and Standard Template Library (STL).',
+        skills: ['Pointers', 'Smart Pointers', 'STL Containers', 'C++17/20']
+      },
+      {
+        title: 'Low-Level Optimization',
+        description: 'Memory alignment, cache locality, compiler optimization, and custom allocators.',
+        skills: ['Valgrind', 'CMake', 'Multithreading', 'Memory Profiling']
+      },
+      {
+        title: 'System Integrations',
+        description: 'Interfacing with OS kernels, socket programming, and building lightweight engines.',
+        skills: ['Sockets', 'POSIX APIs', 'Graphics Pipelines']
+      }
+    ]
+  },
+  // ── Java ──
+  {
+    id: 'java-beg',
+    title: 'Java Core Foundations',
+    description: 'Learn Java syntax, OOP inheritance, encapsulation, interfaces, and compile files using local configurations.',
+    category: 'Java',
+    level: 'Beginner',
+    duration: '3 Months',
+    popular: false,
+    milestones: [
+      {
+        title: 'Java Basics',
+        description: 'Variables, loops, arrays, error exceptions, and standard terminal I/O functions.',
+        skills: ['Variables', 'Control Flow', 'Exception Handling']
+      },
+      {
+        title: 'OOP Foundations',
+        description: 'Master inheritance, polymorphism, abstract structures, and interfaces.',
+        skills: ['Inheritance', 'Interfaces', 'Polymorphism']
       }
     ]
   },
@@ -170,28 +365,23 @@ export const learningPaths: LearningPath[] = [
     ]
   },
   {
-    id: 'cpp-systems',
-    title: 'C++ Systems Programming',
-    description: 'Master manual memory management, system calls, high-performance computing, and game engines basics.',
-    category: 'C++',
+    id: 'java-adv',
+    title: 'JVM Internals & Reactive Architecture',
+    description: 'Master Garbage Collection optimizations, advanced memory configurations, and build reactive streams.',
+    category: 'Java',
     level: 'Advanced',
-    duration: '6 Months',
-    popular: false,
+    duration: '4 Months',
+    popular: true,
     milestones: [
       {
-        title: 'Modern C++ Foundations',
-        description: 'Pointers, smart pointers, stack vs heap allocation, and Standard Template Library (STL).',
-        skills: ['Pointers', 'Smart Pointers', 'STL Containers', 'C++17/20']
+        title: 'JVM Optimization',
+        description: 'Optimize Garbage Collectors (G1, ZGC), tune heap memory spaces, and analyze dumps.',
+        skills: ['GC Tuning', 'Memory Profiling', 'Heap Dumps']
       },
       {
-        title: 'Low-Level Optimization',
-        description: 'Memory alignment, cache locality, compiler optimization, and custom allocators.',
-        skills: ['Valgrind', 'CMake', 'Multithreading', 'Memory Profiling']
-      },
-      {
-        title: 'System Integrations',
-        description: 'Interfacing with OS kernels, socket programming, and building lightweight engines.',
-        skills: ['Sockets', 'POSIX APIs', 'Graphics Pipelines']
+        title: 'Reactive Streams',
+        description: 'Build non-blocking reactive API microservices using Project Reactor and WebFlux.',
+        skills: ['Project Reactor', 'Spring WebFlux', 'Reactive REST APIs']
       }
     ]
   }

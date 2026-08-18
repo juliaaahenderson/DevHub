@@ -103,7 +103,7 @@ export default function PlatformIntro() {
   const active = items[activeIndex];
 
   return (
-    <section className="py-20 lg:py-28 bg-gradient-to-b from-white to-slate-50 border-b border-slate-200/50">
+    <section className="pt-20 pb-4 lg:pt-28 lg:pb-6 bg-gradient-to-b from-white to-slate-50 border-b border-slate-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── Header Area ── */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">

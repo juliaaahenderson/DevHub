@@ -13,6 +13,42 @@ export default function DocumentationClient({ documentation }: DocumentationClie
   const [activeTopicId, setActiveTopicId] = useState(documentation[0].id);
   const [activeArticleId, setActiveArticleId] = useState(documentation[0].articles[0].id);
 
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const highlightCode = (code: string, language: string = 'js') => {
+    if (!code) return '';
+    let escaped = code
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+
+    if (language === 'css') {
+      const cssRegex = /(\/\*[\s\S]*?\*\/)|(^[\s.#\w-][^\n{]+)(?=\s*\{)|([\w-]+)(?=\s*:)|(:\s*)([^;\}]+)/gm;
+      return escaped.replace(cssRegex, (match, comment, selector, property, colon, value) => {
+        if (comment) return `<span style="color: #64748b; font-style: italic;">${comment}</span>`;
+        if (selector) return `<span style="color: #60a5fa; font-weight: 600;">${selector}</span>`;
+        if (property) return `<span style="color: #c084fc;">${property}</span>`;
+        if (colon && value) return `${colon}<span style="color: #fbbf24;">${value}</span>`;
+        return match;
+      });
+    }
+
+    const jsRegex = /(\/\/.*)|(["'`])(.*?)\2|\b(const|let|var|import|export|from|default|function|return|try|catch|async|await|if|else|throw|new|error|true|false)\b|(\w+)(?=\s*\()|\b(\d+)\b/g;
+    return escaped.replace(jsRegex, (match, comment, quote, str, keyword, fn, num) => {
+      if (comment) return `<span style="color: #64748b; font-style: italic;">${comment}</span>`;
+      if (quote) return `<span style="color: #34d399;">${quote}${str}${quote}</span>`;
+      if (keyword) return `<span style="color: #60a5fa; font-weight: 600;">${keyword}</span>`;
+      if (fn) return `<span style="color: #f59e0b;">${fn}</span>`;
+      if (num) return `<span style="color: #fbbf24;">${num}</span>`;
+      return match;
+    });
+  };
+
   // Flattened articles list for search filtering
   const allArticles = documentation.flatMap((topic) =>
     topic.articles.map((art) => ({
@@ -122,7 +158,7 @@ export default function DocumentationClient({ documentation }: DocumentationClie
               <span>{selectedTopic.title}</span>
             </div>
 
-            <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            <h1 id="concept-definition" className="scroll-mt-24 text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
               {selectedArticle.title}
             </h1>
 
@@ -132,19 +168,19 @@ export default function DocumentationClient({ documentation }: DocumentationClie
 
             {/* Code blocks */}
             {selectedArticle.codeSnippet && (
-              <div className="bg-slate-900 rounded-2xl overflow-hidden border border-slate-800">
+              <div id="syntax-layout" className="scroll-mt-24 bg-slate-900 rounded-2xl overflow-hidden border border-slate-800">
                 <div className="px-4 py-2.5 bg-slate-800/80 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400 font-mono">
                   <span>code_snippet.{selectedArticle.language || 'js'}</span>
                   <span className="text-[10px] text-blue-400 font-bold uppercase">Syntax Highlighter</span>
                 </div>
-                <pre className="p-5 overflow-x-auto text-xs font-mono text-slate-300 leading-relaxed">
-                  <code>{selectedArticle.codeSnippet}</code>
+                 <pre className="p-5 overflow-x-auto text-xs font-mono text-slate-300 leading-relaxed">
+                  <code dangerouslySetInnerHTML={{ __html: highlightCode(selectedArticle.codeSnippet, selectedArticle.language) }} />
                 </pre>
               </div>
             )}
 
             {/* Related concepts */}
-            <div className="pt-6 border-t border-slate-150">
+            <div id="related-articles" className="scroll-mt-24 pt-6 border-t border-slate-150">
               <h4 className="text-xs font-bold text-slate-900 mb-3 flex items-center gap-2">
                 <HelpCircle className="w-4 h-4 text-slate-400" />
                 Related Articles
@@ -173,14 +209,19 @@ export default function DocumentationClient({ documentation }: DocumentationClie
             </div>
             
             <ul className="space-y-3">
-              {['Concept Definition', 'Syntax Layout', 'Examples & Demos', 'Standard Exceptions'].map((tocItem, idx) => (
-                <li
-                  key={idx}
-                  className={`text-xs font-medium cursor-default ${
-                    idx === 0 ? 'text-blue-600' : 'text-slate-500'
-                  }`}
-                >
-                  {tocItem}
+              {[
+                { name: 'Concept Definition', target: 'concept-definition' },
+                { name: 'Syntax Layout', target: 'syntax-layout' },
+                { name: 'Examples & Demos', target: 'syntax-layout' },
+                { name: 'Standard Exceptions', target: 'related-articles' },
+              ].map((item, idx) => (
+                <li key={idx}>
+                  <button
+                    onClick={() => scrollToSection(item.target)}
+                    className="text-xs font-medium cursor-pointer text-slate-500 hover:text-blue-600 transition-colors text-left focus:outline-none"
+                  >
+                    {item.name}
+                  </button>
                 </li>
               ))}
             </ul>

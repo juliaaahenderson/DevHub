@@ -90,13 +90,6 @@ export default function Header() {
 
             {/* Actions */}
             <div className="hidden md:flex items-center gap-4">
-              <button
-                onClick={() => setIsSearchOpen(true)}
-                className="p-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors"
-                aria-label="Search site"
-              >
-                <Search className="w-5 h-5" />
-              </button>
               <Link
                 href="/learn"
                 className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/10 hover:shadow-blue-500/20 transition-all gap-1.5"
@@ -108,13 +101,6 @@ export default function Header() {
 
             {/* Mobile Menu Toggle */}
             <div className="flex md:hidden items-center gap-2">
-              <button
-                onClick={() => setIsSearchOpen(true)}
-                className="p-2 rounded-lg text-slate-500 hover:text-slate-900 transition-colors"
-                aria-label="Search site"
-              >
-                <Search className="w-5 h-5" />
-              </button>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="p-2 rounded-lg text-slate-500 hover:text-slate-900 transition-colors"

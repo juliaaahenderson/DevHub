@@ -78,7 +78,7 @@ export default function Home() {
 
                 <div className="pt-2">
                   <Link
-                    href="/learn"
+                    href="/contact"
                     className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/10 hover:shadow-blue-500/20 hover:scale-[1.01] active:scale-[0.99] transition-all gap-2 group"
                   >
                     Get Started

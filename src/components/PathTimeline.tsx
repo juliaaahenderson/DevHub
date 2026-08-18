@@ -79,7 +79,7 @@ export default function PathTimeline() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="relative py-20 lg:py-24 overflow-hidden bg-slate-50 border-b border-slate-200/50">
+    <section className="relative pt-4 pb-20 lg:pt-6 lg:pb-24 overflow-hidden bg-slate-50 border-b border-slate-200/50">
       {/* ── Ambient Background Effects ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Large gradient orb — top left */}

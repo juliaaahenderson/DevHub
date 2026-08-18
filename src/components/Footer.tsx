@@ -114,9 +114,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="mailto:contact@devhub.com" className="hover:text-white transition-colors">
+                <Link href="/contact" className="hover:text-white transition-colors">
                   Contact Support
-                </a>
+                </Link>
               </li>
               <li>
                 <Link href="/about#privacy" className="hover:text-white transition-colors">
