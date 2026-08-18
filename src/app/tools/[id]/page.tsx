@@ -116,7 +116,6 @@ export default function ToolDetailPage({ params }: { params: Promise<{ id: strin
                 </span>
               </div>
 
-              {/* Dynamic full-width realistic banner visual */}
               {realisticVisual && (
                 <div className="w-full h-48 sm:h-64 rounded-2xl overflow-hidden shadow-inner relative border border-slate-200/50">
                   <img 

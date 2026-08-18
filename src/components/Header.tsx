@@ -47,16 +47,16 @@ export default function Header() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-14">
             {/* Logo */}
-            <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="flex items-center gap-2 group">
+            <div className="flex-shrink-0 flex items-center h-14 relative w-64">
+              <Link href="/" className="absolute left-0 top-1/2 -translate-y-1/2 group">
                 <Image
                   src="/DevHub logo.png"
                   alt="DevHub"
                   width={280}
                   height={72}
-                  className="h-20 w-auto object-contain group-hover:opacity-90 transition-opacity"
+                  className="h-20 w-auto max-w-none object-contain group-hover:opacity-90 transition-opacity"
                   priority
                   unoptimized
                 />

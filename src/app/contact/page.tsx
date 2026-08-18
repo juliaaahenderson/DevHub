@@ -257,21 +257,7 @@ export default function ContactPage() {
 
               </div>
 
-              {/* Decorative line */}
-              <div className="border-t border-slate-100 pt-6">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Join our community</span>
-                <div className="flex gap-3">
-                  {['GitHub', 'Discord', 'Twitter'].map((social) => (
-                    <a
-                      key={social}
-                      href="#"
-                      className="px-3 py-1.5 rounded-lg border border-slate-200 text-xs font-semibold text-slate-600 hover:bg-slate-50 hover:text-slate-900 hover:border-slate-350 transition-all"
-                    >
-                      {social}
-                    </a>
-                  ))}
-                </div>
-              </div>
+
             </div>
 
             {/* Quick Note widget */}

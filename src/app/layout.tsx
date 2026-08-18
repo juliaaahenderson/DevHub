@@ -25,6 +25,10 @@ export const metadata: Metadata = {
       { url: '/DevHub favicon.png', sizes: '192x192', type: 'image/png' },
       { url: '/DevHub favicon.png', sizes: '512x512', type: 'image/png' },
     ],
+    shortcut: '/DevHub favicon.png',
+    apple: [
+      { url: '/DevHub favicon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
 };
 
