@@ -11,7 +11,7 @@ const navigationLinks = [
   { name: 'Learn', href: '/learn' },
   { name: 'Documentation', href: '/documentation' },
   { name: 'Explore Tools', href: '/tools' },
-  { name: 'Microsoft Office', href: '/microsoft-office' },
+  { name: 'Microsoft 365', href: '/microsoft-365' },
 ];
 
 export default function Header() {
